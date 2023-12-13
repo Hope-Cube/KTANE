@@ -13,15 +13,24 @@ namespace KTANE
     {
         public class Venting_gas
         {
-
+            public string Description()
+            {
+                return "Answer the questions!";
+            }
         }
         public class Capacitor_discharge
         {
-            public readonly string Description = "Hold down the lever!";
+            public string Description()
+            {
+                return "Hold down the lever!";
+            }
         }
         public class Knobs
         {
-            public readonly string Description = "The knob must be in the correct position at the time!";
+            public string Description()
+            {
+                return "The knob must be in the correct position at the time!"; 
+            }
             public string Position(bool[] leds)
             {
                 if ((leds[0] == false && leds[1] == false && leds[2] == true && leds[3] == false && leds[4] == true && leds[5] == true && leds[6] == true && leds[7] == true && leds[8] == true) || 
