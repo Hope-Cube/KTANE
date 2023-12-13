@@ -32,7 +32,7 @@ namespace KTANE
             }
         }
         /// <summary>
-        /// Rotate ethe knob.
+        /// Rotate the knob.
         /// </summary>
         public class Knobs
         {
