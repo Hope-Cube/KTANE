@@ -17,11 +17,35 @@ namespace KTANE
         }
         public class Capacitor_discharge
         {
-
+            public readonly string Description = "Hold down the lever!";
         }
         public class Knobs
         {
-
+            public readonly string Description = "The knob must be in the correct position at the time!";
+            public string Position(bool[] leds)
+            {
+                if ((leds[0] == false && leds[1] == false && leds[2] == true && leds[3] == false && leds[4] == true && leds[5] == true && leds[6] == true && leds[7] == true && leds[8] == true) || 
+                    (leds[0] == true && leds[1] == false && leds[2] == true && leds[3] == false && leds[4] == true && leds[5] == false && leds[6] == false && leds[7] == true && leds[8] == true))
+                {
+                    return "Up position!";
+                }
+                if ((leds[0] == false && leds[1] == true && leds[2] == true && leds[3] == false && leds[4] == false && leds[5] == true && leds[6] == true && leds[7] == true && leds[8] == true) || 
+                    (leds[0] == true && leds[1] == false && leds[2] == true && leds[3] == false && leds[4] == true && leds[5] == false && leds[6] == false && leds[7] == true && leds[8] == false))
+                {
+                    return "Down position!";
+                }
+                if ((leds[0] == false && leds[1] == false && leds[2] == false && leds[3] == false && leds[4] == true && leds[5] == false && leds[6] == true && leds[7] == false && leds[8] == false) || 
+                    (leds[0] == false && leds[1] == false && leds[2] == false && leds[3] == false && leds[4] == true && leds[5] == false && leds[6] == false && leds[7] == false && leds[8] == false))
+                {
+                    return "Left position!";
+                }
+                if ((leds[0] == true && leds[1] == false && leds[2] == true && leds[3] == true && leds[4] == true && leds[5] == true && leds[6] == true && leds[7] == true && leds[8] == true) ||
+                    (leds[0] == true && leds[1] == false && leds[2] == true && leds[3] == true && leds[4] == false && leds[5] == false && leds[6] == true && leds[7] == true && leds[8] == true))
+                {
+                    return "Right position!";
+                }
+                return "Impossible position!";
+            }        
         }
     }
 }
