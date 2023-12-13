@@ -11,6 +11,9 @@ namespace KTANE
     /// </summary>
     internal class Needy_module
     {
+        /// <summary>
+        /// Yes or No questions.
+        /// </summary>
         public class Venting_gas
         {
             public string Description()
@@ -18,6 +21,9 @@ namespace KTANE
                 return "Answer the questions!";
             }
         }
+        /// <summary>
+        /// Discharging the capacitor.
+        /// </summary>
         public class Capacitor_discharge
         {
             public string Description()
@@ -25,6 +31,9 @@ namespace KTANE
                 return "Hold down the lever!";
             }
         }
+        /// <summary>
+        /// Rotate ethe knob.
+        /// </summary>
         public class Knobs
         {
             public string Description()
