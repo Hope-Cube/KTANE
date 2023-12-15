@@ -1,10 +1,12 @@
-﻿using System;
+﻿using AStarPath;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Documents;
+using static System.Console;
 
 namespace KTANE
 {
@@ -84,7 +86,7 @@ namespace KTANE
         /// </summary>
         public class Maze
         {
-            public string Correct(Point f, Point s, Point b, Point e)
+            public string Correct(Point f, Point b, Point e)
             {
                 // Create a 2D array to represent the grid
                 AStarNode[,] grid = new AStarNode[11, 11];
@@ -100,77 +102,128 @@ namespace KTANE
 
                 List<Point> points = new List<Point>();
 
-                if ((f == new Point(0, 1) && s == new Point(5, 2)) || (f == new Point(5, 2) && s == new Point(0, 1)))
+                if (f == new Point(0, 1) || f == new Point(5, 2))
                 {
-                    points.AddRange(new List<Point> { new Point(6, 0), new Point(6, 0) });
+                    points = GetObsticles(0, 0);
                 }
-                if ((f == new Point(3, 1) && s == new Point(4, 1)) || (f == new Point(4, 1) && s == new Point(3, 1)))
+                if (f == new Point(3, 1) || f == new Point(4, 1))
                 {
-
+                    points = GetObsticles(1, 0);
                 }
-                if ((f == new Point(3, 3) && s == new Point(5, 3)) || (f == new Point(5, 3) && s == new Point(3, 3)))
+                if (f == new Point(3, 3) || f == new Point(5, 3))
                 {
-
+                    points = GetObsticles(2, 0);
                 }
-                if ((f == new Point(0, 0) && s == new Point(5, 2)) || (f == new Point(5, 2) && s == new Point(0, 0)))
+                if (f == new Point(0, 0) || f == new Point(5, 2))
                 {
-
+                    points = GetObsticles(0, 1);
                 }
-                if ((f == new Point(3, 5) && s == new Point(4, 2)) || (f == new Point(4, 2) && s == new Point(3, 5)))
+                if (f == new Point(3, 5) || f == new Point(4, 2))
                 {
-
+                    points = GetObsticles(1, 1);
                 }
-                if ((f == new Point(4, 0) && s == new Point(2, 4)) || (f == new Point(2, 4) && s == new Point(4, 0)))
+                if (f == new Point(4, 0) || f == new Point(2, 4))
                 {
-
+                    points = GetObsticles(2, 1);
                 }
-                if ((f == new Point(1, 0) && s == new Point(1, 5)) || (f == new Point(1, 5) && s == new Point(1, 0)))
+                if (f == new Point(1, 0) || f == new Point(1, 5))
                 {
-
+                    points = GetObsticles(0, 2);
                 }
-                if ((f == new Point(3, 0) && s == new Point(2, 3)) || (f == new Point(2, 3) && s == new Point(3, 0)))
+                if (f == new Point(3, 0) || f == new Point(2, 3))
                 {
-
+                    points = GetObsticles(1, 2);
                 }
-                if ((f == new Point(2, 1) && s == new Point(0, 4)) || (f == new Point(0, 4) && s == new Point(2, 1)))
+                if (f == new Point(2, 1) || f == new Point(0, 4))
                 {
-
+                    points = GetObsticles(2, 2);
                 }
 
                 // Mark obstacles in the grid
                 foreach (Point point in points)
                 {
-                    int x = (int)point.X;
-                    int y = (int)point.Y;
-
-                    // Ensure the indices are within the bounds of the bool array
-                    if (x >= 0 && x < grid.GetLength(0) && y >= 0 && y < grid.GetLength(1))
-                    {
-                        grid[x, y].IsObstacle = true;
-                    }
+                    grid[point.X, point.Y].IsObstacle = true;
                 }
 
                 // Define the start and end nodes
-                AStarNode startNode = grid[(int)b.X, (int)b.Y];
-                AStarNode endNode = grid[(int)e.X, (int)e.Y];
+                AStarNode startNode = grid[b.X, b.Y];
+                AStarNode endNode = grid[e.X, e.Y];
 
                 // Find the path using A* algorithm
                 List<AStarNode> path = AStar.FindPath(startNode, endNode);
 
+                string s = "";
+
                 // Print the path
                 if (path != null)
                 {
-                    foreach (var node in path)
+                    WriteLine("Path found:");
+                    Bitmap pathBitmap = new Bitmap(11, 11);
+                    for (int i = 0; i < path.Count - 1; i += 2)
                     {
-                        Console.WriteLine($"({node.X}, {node.Y})");
+                        AStarNode currentNode = path[i];
+                        AStarNode nextNode = (i + 1 < path.Count) ? path[i + 1] : null;
+                        int dx = (nextNode != null) ? nextNode.X - currentNode.X : 0;
+                        int dy = (nextNode != null) ? nextNode.Y - currentNode.Y : 0;
+                        string direction = GetDirection(dx, dy);
+                        WriteLine($"{direction}");
+                        s += direction;
+                        pathBitmap.SetPixel(currentNode.X, currentNode.Y, Color.FromArgb(0, 255, 255));
+                        if (nextNode != null)
+                        {
+                            pathBitmap.SetPixel(nextNode.X, nextNode.Y, Color.FromArgb(0, 255, 255));
+                        }
                     }
-                    return "Path found:";
+                    // Add the last node to the bitmap
+                    pathBitmap.SetPixel(path.Last().X, path.Last().Y, Color.FromArgb(0, 255, 255));
+                    pathBitmap.Save("path.png");
                 }
                 else
                 {
-                    return "No path found.";
+                    WriteLine("No path found.");
                 }
-                
+                return s;
+            }
+            private string GetDirection(int dx, int dy)
+            {
+                if (dx == 1)
+                {
+                    return "→";
+                }
+                else if (dx == -1)
+                {
+                    return "←";
+                }
+                else if (dy == 1)
+                {
+                    return "↓";
+                }
+                else if (dy == -1)
+                {
+                    return "↑";
+                }
+                return "unknown";
+            }
+            private List<Point> GetObsticles(int sx, int sy)
+            {
+                int xx = sx * 11;
+                int yy = sy * 11;
+                List<Point> obs;
+                using (Bitmap field = new Bitmap("field.png"))
+                {
+                    obs = new List<Point>();
+                    for (int x = xx; x < xx + 11; x++)
+                    {
+                        for (int y = yy; y < yy + 11; y++)
+                        {
+                            if (field.GetPixel(x, y) == Color.FromArgb(0, 0, 0))
+                            {
+                                obs.Add(new Point(x, y));
+                            };
+                        }
+                    }
+                }
+                return obs;
             }
         }
         /// <summary>
