@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace KTANE
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Maze.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Maze : Page
     {
-        public MainWindow()
+        public Maze()
         {
             InitializeComponent();
-            mainFrame.Navigate(new mainPage());
         }
     }
 }

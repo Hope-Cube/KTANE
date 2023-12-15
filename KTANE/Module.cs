@@ -157,8 +157,8 @@ namespace KTANE
                 // Print the path
                 if (path != null)
                 {
-                    //WriteLine("Path found:");
-                    //Bitmap pathBitmap = new Bitmap(11, 11);
+                    /*WriteLine("Path found:");
+                    Bitmap pathBitmap = new Bitmap(11, 11);*/
                     for (int i = 0; i < path.Count - 1; i += 2)
                     {
                         AStarNode currentNode = path[i];
@@ -168,19 +168,19 @@ namespace KTANE
                         string direction = GetDirection(dx, dy);
                         //WriteLine($"{direction}");
                         s += direction;
-                        //pathBitmap.SetPixel(currentNode.X, currentNode.Y, Color.FromArgb(0, 255, 255));
-                        //if (nextNode != null)
-                        //{
-                        //    pathBitmap.SetPixel(nextNode.X, nextNode.Y, Color.FromArgb(0, 255, 255));
-                        //}
+                        /*pathBitmap.SetPixel(currentNode.X, currentNode.Y, Color.FromArgb(0, 255, 255));
+                        if (nextNode != null)
+                        {
+                            pathBitmap.SetPixel(nextNode.X, nextNode.Y, Color.FromArgb(0, 255, 255));
+                        }*/
                     }
-                    // Add the last node to the bitmap
-                    //pathBitmap.SetPixel(path.Last().X, path.Last().Y, Color.FromArgb(0, 255, 255));
-                    //pathBitmap.Save("path.png");
+                    /*// Add the last node to the bitmap
+                    pathBitmap.SetPixel(path.Last().X, path.Last().Y, Color.FromArgb(0, 255, 255));
+                    pathBitmap.Save("path.png");*/
                 }
                 else
                 {
-                    System.Windows.MessageBox.Show("No path found.", "Warning!");
+                    System.Windows.MessageBox.Show("No path found.", "Warning");
                 }
                 return s;
             }

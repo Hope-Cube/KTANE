@@ -16,14 +16,18 @@ using System.Windows.Shapes;
 namespace KTANE
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for mainPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class mainPage : Page
     {
-        public MainWindow()
+        MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+        public mainPage()
         {
             InitializeComponent();
-            mainFrame.Navigate(new mainPage());
+        }
+        private void wires_button_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.mainFrame.Navigate(new wiresPage());
         }
     }
 }
