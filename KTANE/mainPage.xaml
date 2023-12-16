@@ -17,7 +17,7 @@
         <StackPanel Orientation="Vertical">
             <Button x:Name="wires_button" Content="" Width="100" Height="25" Click="wires_button_Click"/>
             <Button x:Name="symbols_button" Content="" Width="100" Height="25"/>
-            <Button x:Name="" Content="" Width="100" Height="25"/>
+            <Button x:Name="button_button" Content="" Width="100" Height="25"/>
         </StackPanel>
     </Grid>
 </Page>
