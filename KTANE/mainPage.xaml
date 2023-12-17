@@ -1,5 +1,6 @@
 ﻿<Page x:Class="KTANE.mainPage"
       FontFamily="Consolas"
+      FontSize="25"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -10,14 +11,18 @@
       Title="Home">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <StackPanel Orientation="Vertical">
-            <Button x:Name="wires_button" Content="" Width="100" Height="25" Click="wires_button_Click"/>
-            <Button x:Name="symbols_button" Content="" Width="100" Height="25"/>
-            <Button x:Name="button_button" Content="" Width="100" Height="25"/>
+            <Button x:Name="wires_button" Content="Wires" Width="165" Height="41" Click="wires_button_Click"/>
+            <Button x:Name="button_button" Content="Button" Width="165" Height="41"/>
+            <Button x:Name="symbols_button" Content="Symbols" Width="165" Height="41"/>
+            <Button x:Name="simon_button" Content="Simon Says" Width="165" Height="41"/>
+            <Button x:Name="whos_button" Content="Who's On First" Width="165" Height="41"/>
+            <Button x:Name="memory_button" Content="Memory" Width="165" Height="41"/>
+            <Button x:Name="morse_button" Content="Morse Code" Width="165" Height="41"/>
+            <Button x:Name="comp_wires_button" Content="Comp. Wires" Width="165" Height="41"/>
+            <Button x:Name="wire_seqs_button" Content="Wire Sequences" Width="165" Height="41"/>
+            <Button x:Name="maze_button" Content="Maze" Width="165" Height="41" Click="maze_button_Click"/>
+            <Button x:Name="passwords_button" Content="Passwords" Width="165" Height="41"/>
         </StackPanel>
     </Grid>
 </Page>

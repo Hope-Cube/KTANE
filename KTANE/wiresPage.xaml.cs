@@ -20,9 +20,14 @@ namespace KTANE
     /// </summary>
     public partial class wiresPage : Page
     {
+        readonly MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
         public wiresPage()
         {
             InitializeComponent();
+        }
+        private void back_button_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.mainFrame.Navigate(new mainPage());
         }
     }
 }

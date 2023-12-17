@@ -29,5 +29,10 @@ namespace KTANE
         {
             mainWindow.mainFrame.Navigate(new wiresPage());
         }
+
+        private void maze_button_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.mainFrame.Navigate(new mazePage());
+        }
     }
 }
