@@ -11,18 +11,208 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Height="50" HorizontalAlignment="Center">
-            <TextBox x:Name="identifier_text" Width="100" FontSize="30"/>
-            <TextBox x:Name="p1_text" Width="100" FontSize="30"/>
-            <TextBox x:Name="p2_text" Width="100" FontSize="30" TextChanged="p2_text_TextChanged"/>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.RowSpan="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <CheckBox x:Name="null_null" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2" />
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="null_one" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="null_two" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="null_three" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="null_four" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="null_five" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <CheckBox x:Name="one_null" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="one_one" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="one_two" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="one_three" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="one_four" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="one_five" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <CheckBox x:Name="two_null" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="two_one" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="two_two" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="two_three" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="two_four" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="two_five" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <CheckBox x:Name="three_null" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="three_one" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="three_two" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="three_three" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="three_four" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="three_five" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <CheckBox x:Name="four_null" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="four_one" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="four_two" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="four_three" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="four_four" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="four_five" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <CheckBox x:Name="five_null" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="five_one" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="five_two" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="five_three" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="five_four" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <CheckBox x:Name="five_five" Checked="Checked_CheckBox">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+            </StackPanel>
         </StackPanel>
-        <TextBlock x:Name="direction_display" Grid.Row="1" FontSize="20"/>
-        <Button x:Name="back_button" Grid.Row="2" Content="Back" Width="100" Height="50" FontSize="20" Click="back_button_Click"/>
+        <TextBlock x:Name="direction_display" Grid.Column="1" Grid.RowSpan="2" FontSize="30"/>
+        <Button x:Name="back_button" Grid.ColumnSpan="2" Grid.Row="2" Content="Back" Width="100" Height="50" FontSize="20" Click="back_button_Click"/>
     </Grid>
 </Page>

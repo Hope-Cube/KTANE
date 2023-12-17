@@ -13,7 +13,7 @@ namespace AStarPath
         /// <param name="identifier">The identifier point used to determine the grid and obstacles</param>
         /// <param name="sp">The starting point</param>
         /// <param name="ep">The ending point</param>
-        public static void Path(Point identifier, Point sp, Point ep)
+        public static string Path(Point identifier, Point sp, Point ep)
         {
             // Create a grid of AStarNodes
             AStarNode[,] grid = new AStarNode[11, 11];
@@ -43,9 +43,10 @@ namespace AStarPath
             // Find the path using the A* algorithm
             List<AStarNode> path = FindPath(startNode, endNode);
             // Process and visualize the path
+            // Default result
+            string directions = "";
             if (path != null)
             {
-                WriteLine("Path found:");
                 // Iterate through the path and mark the nodes
                 for (int i = 0; i < path.Count - 1; i += 2)
                 {
@@ -53,16 +54,13 @@ namespace AStarPath
                     AStarNode nextNode = (i + 1 < path.Count) ? path[i + 1] : null;
                     int dx = (nextNode != null) ? nextNode.X - currentNode.X : 0;
                     int dy = (nextNode != null) ? nextNode.Y - currentNode.Y : 0;
-                    string direction = GetDirection(dx, dy);
-                    // Display direction
-                    WriteLine($"{direction}");
+                    directions += GetDirection(dx, dy) + " ";
                 }
             }
-            else
-            {
-                // Display a message if no path is found
-                WriteLine("No path found.");
-            }
+            // Display a message if no path is found
+            else directions = "No path found.";
+            // Return the result after the loop has completed
+            return directions;
         }
         /// <summary>
         /// Retrieves the field information based on the provided Point coordinates.
@@ -94,7 +92,7 @@ namespace AStarPath
         /// <param name="dx">Change in x coordinate</param>
         /// <param name="dy">Change in y coordinate</param>
         /// <returns>The direction as a string</returns>
-        private static string GetDirection(int dx, int dy) => (dx == 1) ? "right" : (dx == -1) ? "left" : (dy == 1) ? "down" : (dy == -1) ? "up" : "unknown";
+        private static string GetDirection(int dx, int dy) => (dx == 1) ? "→" : (dx == -1) ? "←" : (dy == 1) ? "↓" : (dy == -1) ? "↑" : "unknown";
         /// <summary>
         /// Calculates the index based on the provided number.
         /// If the number is between 1 and 6 (inclusive), the corresponding index is calculated as (number * 2) - 2.
