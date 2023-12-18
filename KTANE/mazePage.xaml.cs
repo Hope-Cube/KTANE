@@ -24,6 +24,8 @@ namespace KTANE
     {
         int cn = 0;
         System.Drawing.Point id;
+        System.Drawing.Point p1;
+        System.Drawing.Point p2;
         readonly MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
         public mazePage()
         {
@@ -106,12 +108,12 @@ namespace KTANE
             }
             else if (cn == 1)
             {
-                checkBox.IsEnabled = false;
+                p1 = PGetPoint(checkBox.Name);
                 cn++;
             }
             else
             {
-                checkBox.IsEnabled = false;
+                p2 = PGetPoint(checkBox.Name);
             }
         }
         private System.Drawing.Point GetPoint(string name)
@@ -172,6 +174,72 @@ namespace KTANE
                              name_fregs[1] == "three" ? new System.Drawing.Point(5, 3) :
                              name_fregs[1] == "four" ? new System.Drawing.Point(5, 4) :
                              name_fregs[1] == "five" ? new System.Drawing.Point(5, 5) :
+                             new System.Drawing.Point();
+                    break;
+                default:
+                    result = new System.Drawing.Point();
+                    break;
+            }
+            return result;
+        }
+        private System.Drawing.Point PGetPoint(string name)
+        {
+            System.Drawing.Point result;
+            string[] name_fregs = name.Split('_');
+            switch (name_fregs[0])
+            {
+                case "null":
+                    result = name_fregs[1] == "null" ? new System.Drawing.Point(1, 1) :
+                             name_fregs[1] == "one" ? new System.Drawing.Point(1, 2) :
+                             name_fregs[1] == "two" ? new System.Drawing.Point(1, 3) :
+                             name_fregs[1] == "three" ? new System.Drawing.Point(1, 4) :
+                             name_fregs[1] == "four" ? new System.Drawing.Point(1, 5) :
+                             name_fregs[1] == "five" ? new System.Drawing.Point(1, 6) :
+                             new System.Drawing.Point();
+                    break;
+                case "one":
+                    result = name_fregs[1] == "null" ? new System.Drawing.Point(2, 1) :
+                             name_fregs[1] == "one" ? new System.Drawing.Point(2, 2) :
+                             name_fregs[1] == "two" ? new System.Drawing.Point(2, 3) :
+                             name_fregs[1] == "three" ? new System.Drawing.Point(2, 4) :
+                             name_fregs[1] == "four" ? new System.Drawing.Point(2, 5) :
+                             name_fregs[1] == "five" ? new System.Drawing.Point(2, 6) :
+                             new System.Drawing.Point();
+                    break;
+                case "two":
+                    result = name_fregs[1] == "null" ? new System.Drawing.Point(3, 1) :
+                             name_fregs[1] == "one" ? new System.Drawing.Point(3, 2) :
+                             name_fregs[1] == "two" ? new System.Drawing.Point(3, 3) :
+                             name_fregs[1] == "three" ? new System.Drawing.Point(3, 4) :
+                             name_fregs[1] == "four" ? new System.Drawing.Point(3, 5) :
+                             name_fregs[1] == "five" ? new System.Drawing.Point(3, 6) :
+                             new System.Drawing.Point();
+                    break;
+                case "three":
+                    result = name_fregs[1] == "null" ? new System.Drawing.Point(4, 1) :
+                             name_fregs[1] == "one" ? new System.Drawing.Point(4, 2) :
+                             name_fregs[1] == "two" ? new System.Drawing.Point(4, 3) :
+                             name_fregs[1] == "three" ? new System.Drawing.Point(4, 4) :
+                             name_fregs[1] == "four" ? new System.Drawing.Point(4, 5) :
+                             name_fregs[1] == "five" ? new System.Drawing.Point(4, 6) :
+                             new System.Drawing.Point();
+                    break;
+                case "four":
+                    result = name_fregs[1] == "null" ? new System.Drawing.Point(5, 1) :
+                             name_fregs[1] == "one" ? new System.Drawing.Point(5, 2) :
+                             name_fregs[1] == "two" ? new System.Drawing.Point(5, 3) :
+                             name_fregs[1] == "three" ? new System.Drawing.Point(5, 4) :
+                             name_fregs[1] == "four" ? new System.Drawing.Point(5, 5) :
+                             name_fregs[1] == "five" ? new System.Drawing.Point(5, 6) :
+                             new System.Drawing.Point();
+                    break;
+                case "five":
+                    result = name_fregs[1] == "null" ? new System.Drawing.Point(6, 1) :
+                             name_fregs[1] == "one" ? new System.Drawing.Point(6, 2) :
+                             name_fregs[1] == "two" ? new System.Drawing.Point(6, 3) :
+                             name_fregs[1] == "three" ? new System.Drawing.Point(6, 4) :
+                             name_fregs[1] == "four" ? new System.Drawing.Point(6, 5) :
+                             name_fregs[1] == "five" ? new System.Drawing.Point(6, 6) :
                              new System.Drawing.Point();
                     break;
                 default:
