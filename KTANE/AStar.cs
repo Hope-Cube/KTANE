@@ -46,7 +46,6 @@ namespace AStarPath
             string direction = "";
             if (path != null)
             {
-                WriteLine("Path found:");
                 // Iterate through the path and mark the nodes
                 for (int i = 0; i < path.Count - 1; i += 2)
                 {
@@ -94,7 +93,7 @@ namespace AStarPath
         /// <param name="dx">Change in x coordinate</param>
         /// <param name="dy">Change in y coordinate</param>
         /// <returns>The direction as a string</returns>
-        private static string GetDirection(int dx, int dy) => (dx == 1) ? "→" : (dx == -1) ? "←" : (dy == 1) ? "↓" : (dy == -1) ? "↑" : "unknown";
+        private static string GetDirection(int dx, int dy) => (dx == 1) ? "right" : (dx == -1) ? "left" : (dy == 1) ? "down" : (dy == -1) ? "up" : "unknown";
         /// <summary>
         /// Calculates the index based on the provided number.
         /// If the number is between 1 and 6 (inclusive), the corresponding index is calculated as (number * 2) - 2.
