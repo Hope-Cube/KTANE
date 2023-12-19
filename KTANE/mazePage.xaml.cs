@@ -109,6 +109,158 @@ namespace KTANE
             }
             else if (cn == 1)
             {
+                p1 = PGetPoint(checkBox.Name);
+                cn++;
+            }
+            else
+            {
+                p2 = PGetPoint(checkBox.Name);
+            }
+        }
+        private System.Drawing.Point GetPoint(string name)
+        {
+            System.Drawing.Point result;
+            string[] name_fregs = name.Split('_');
+            switch (name_fregs[0])
+            {
+                case "null":
+                    result = name_fregs[1] == "null" ? new System.Drawing.Point(0, 0) :
+                             name_fregs[1] == "one" ? new System.Drawing.Point(0, 1) :
+                             name_fregs[1] == "two" ? new System.Drawing.Point(0, 2) :
+                             name_fregs[1] == "three" ? new System.Drawing.Point(0, 3) :
+                             name_fregs[1] == "four" ? new System.Drawing.Point(0, 4) :
+                             name_fregs[1] == "five" ? new System.Drawing.Point(0, 5) :
+                             new System.Drawing.Point();
+                    break;
+                case "one":
+                    result = name_fregs[1] == "null" ? new System.Drawing.Point(1, 0) :
+                             name_fregs[1] == "one" ? new System.Drawing.Point(1, 1) :
+                             name_fregs[1] == "two" ? new System.Drawing.Point(1, 2) :
+                             name_fregs[1] == "three" ? new System.Drawing.Point(1, 3) :
+                             name_fregs[1] == "four" ? new System.Drawing.Point(1, 4) :
+                             name_fregs[1] == "five" ? new System.Drawing.Point(1, 5) :
+                             new System.Drawing.Point();
+                    break;
+                case "two":
+                    result = name_fregs[1] == "null" ? new System.Drawing.Point(2, 0) :
+                             name_fregs[1] == "one" ? new System.Drawing.Point(2, 1) :
+                             name_fregs[1] == "two" ? new System.Drawing.Point(2, 2) :
+                             name_fregs[1] == "three" ? new System.Drawing.Point(2, 3) :
+                             name_fregs[1] == "four" ? new System.Drawing.Point(2, 4) :
+                             name_fregs[1] == "five" ? new System.Drawing.Point(2, 5) :
+                             new System.Drawing.Point();
+                    break;
+                case "three":
+                    result = name_fregs[1] == "null" ? new System.Drawing.Point(3, 0) :
+                             name_fregs[1] == "one" ? new System.Drawing.Point(3, 1) :
+                             name_fregs[1] == "two" ? new System.Drawing.Point(3, 2) :
+                             name_fregs[1] == "three" ? new System.Drawing.Point(3, 3) :
+                             name_fregs[1] == "four" ? new System.Drawing.Point(3, 4) :
+                             name_fregs[1] == "five" ? new System.Drawing.Point(3, 5) :
+                             new System.Drawing.Point();
+                    break;
+                case "four":
+                    result = name_fregs[1] == "null" ? new System.Drawing.Point(4, 0) :
+                             name_fregs[1] == "one" ? new System.Drawing.Point(4, 1) :
+                             name_fregs[1] == "two" ? new System.Drawing.Point(4, 2) :
+                             name_fregs[1] == "three" ? new System.Drawing.Point(4, 3) :
+                             name_fregs[1] == "four" ? new System.Drawing.Point(4, 4) :
+                             name_fregs[1] == "five" ? new System.Drawing.Point(4, 5) :
+                             new System.Drawing.Point();
+                    break;
+                case "five":
+                    result = name_fregs[1] == "null" ? new System.Drawing.Point(5, 0) :
+                             name_fregs[1] == "one" ? new System.Drawing.Point(5, 1) :
+                             name_fregs[1] == "two" ? new System.Drawing.Point(5, 2) :
+                             name_fregs[1] == "three" ? new System.Drawing.Point(5, 3) :
+                             name_fregs[1] == "four" ? new System.Drawing.Point(5, 4) :
+                             name_fregs[1] == "five" ? new System.Drawing.Point(5, 5) :
+                             new System.Drawing.Point();
+                    break;
+                default:
+                    result = new System.Drawing.Point();
+                    break;
+            }
+            return result;
+        }
+        private System.Drawing.Point PGetPoint(string name)
+        {
+            System.Drawing.Point result;
+            string[] name_fregs = name.Split('_');
+            switch (name_fregs[0])
+            {
+                case "null":
+                    result = name_fregs[1] == "null" ? new System.Drawing.Point(1, 1) :
+                             name_fregs[1] == "one" ? new System.Drawing.Point(1, 2) :
+                             name_fregs[1] == "two" ? new System.Drawing.Point(1, 3) :
+                             name_fregs[1] == "three" ? new System.Drawing.Point(1, 4) :
+                             name_fregs[1] == "four" ? new System.Drawing.Point(1, 5) :
+                             name_fregs[1] == "five" ? new System.Drawing.Point(1, 6) :
+                             new System.Drawing.Point();
+                    break;
+                case "one":
+                    result = name_fregs[1] == "null" ? new System.Drawing.Point(2, 1) :
+                             name_fregs[1] == "one" ? new System.Drawing.Point(2, 2) :
+                             name_fregs[1] == "two" ? new System.Drawing.Point(2, 3) :
+                             name_fregs[1] == "three" ? new System.Drawing.Point(2, 4) :
+                             name_fregs[1] == "four" ? new System.Drawing.Point(2, 5) :
+                             name_fregs[1] == "five" ? new System.Drawing.Point(2, 6) :
+                             new System.Drawing.Point();
+                    break;
+                case "two":
+                    result = name_fregs[1] == "null" ? new System.Drawing.Point(3, 1) :
+                             name_fregs[1] == "one" ? new System.Drawing.Point(3, 2) :
+                             name_fregs[1] == "two" ? new System.Drawing.Point(3, 3) :
+                             name_fregs[1] == "three" ? new System.Drawing.Point(3, 4) :
+                             name_fregs[1] == "four" ? new System.Drawing.Point(3, 5) :
+                             name_fregs[1] == "five" ? new System.Drawing.Point(3, 6) :
+                             new System.Drawing.Point();
+                    break;
+                case "three":
+                    result = name_fregs[1] == "null" ? new System.Drawing.Point(4, 1) :
+                             name_fregs[1] == "one" ? new System.Drawing.Point(4, 2) :
+                             name_fregs[1] == "two" ? new System.Drawing.Point(4, 3) :
+                             name_fregs[1] == "three" ? new System.Drawing.Point(4, 4) :
+                             name_fregs[1] == "four" ? new System.Drawing.Point(4, 5) :
+                             name_fregs[1] == "five" ? new System.Drawing.Point(4, 6) :
+                             new System.Drawing.Point();
+                    break;
+                case "four":
+                    result = name_fregs[1] == "null" ? new System.Drawing.Point(5, 1) :
+                             name_fregs[1] == "one" ? new System.Drawing.Point(5, 2) :
+                             name_fregs[1] == "two" ? new System.Drawing.Point(5, 3) :
+                             name_fregs[1] == "three" ? new System.Drawing.Point(5, 4) :
+                             name_fregs[1] == "four" ? new System.Drawing.Point(5, 5) :
+                             name_fregs[1] == "five" ? new System.Drawing.Point(5, 6) :
+                             new System.Drawing.Point();
+                    break;
+                case "five":
+                    result = name_fregs[1] == "null" ? new System.Drawing.Point(6, 1) :
+                             name_fregs[1] == "one" ? new System.Drawing.Point(6, 2) :
+                             name_fregs[1] == "two" ? new System.Drawing.Point(6, 3) :
+                             name_fregs[1] == "three" ? new System.Drawing.Point(6, 4) :
+                             name_fregs[1] == "four" ? new System.Drawing.Point(6, 5) :
+                             name_fregs[1] == "five" ? new System.Drawing.Point(6, 6) :
+                             new System.Drawing.Point();
+                    break;
+                default:
+                    result = new System.Drawing.Point();
+                    break;
+                id = GetPoint(checkBox.Name);
+                // Convert System.Drawing.Color to System.Windows.Media.Color
+                Color c = Color.FromArgb(0, 255, 0);
+                System.Windows.Media.Color wpfColor = System.Windows.Media.Color.FromArgb(
+                    c.A, c.R, c.G, c.B);
+                SolidColorBrush borderBrush = new SolidColorBrush(wpfColor);
+
+                // Set the BorderBrush property of the CheckBox to the new SolidColorBrush
+                checkBox.BorderBrush = borderBrush;
+                checkBox.IsChecked = false;
+                CheckBoxEnable();
+                cn++;
+            }
+            else if (cn == 1)
+            {
                 p1 = GetPoint(checkBox.Name);
                 cn++;
             }
