@@ -20,9 +20,23 @@ namespace KTANE
         /// </summary>
         public class Wires
         {
-            public static string Description()
+            public string Correct(int wn)
             {
-                return "Cut the correct wire to solve this one!";
+                switch (wn)
+                {
+                    case 3: return W3(isRed, lastIsWhite, moreThan1Blue);
+                        break;
+                    case 4: 
+                        break;
+                    case 5:
+                        break;
+                    case 6:
+                        break;
+                }
+            }
+            private string W3(bool isRed, bool lastIsWhite, bool moreThan1Blue)
+            {
+                throw new NotImplementedException();
             }
         }
         /// <summary>
