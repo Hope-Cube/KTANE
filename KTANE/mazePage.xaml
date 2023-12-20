@@ -212,7 +212,7 @@
                 </CheckBox>
             </StackPanel>
         </StackPanel>
-        <TextBlock x:Name="direction_display" Grid.Column="1" Grid.RowSpan="2" FontSize="30" TextWrapping="WrapWithOverflow"/>
+        <TextBlock x:Name="direction_display" Grid.Column="1" Grid.RowSpan="2" FontSize="20" TextWrapping="Wrap"/>
         <Button x:Name="back_button" Grid.ColumnSpan="2" Grid.Row="2" Content="Back" Width="100" Height="50" FontSize="20" Click="back_button_Click"/>
     </Grid>
 </Page>
