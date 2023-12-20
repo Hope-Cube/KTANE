@@ -38,8 +38,8 @@ namespace AStarPath
                 for (int y = 0; y < 11; y++)
                     grid[x, y].GenerateNeighbors(grid);
             // Retrieve AStarNodes for the starting and ending points
-            AStarNode startNode = grid[sp.X, sp.Y];
-            AStarNode endNode = grid[ep.X, ep.Y];
+            AStarNode startNode = grid[GetIndexByNumber(sp.X), GetIndexByNumber(sp.Y)];
+            AStarNode endNode = grid[GetIndexByNumber(ep.X), GetIndexByNumber(ep.Y)];
             // Find the path using the A* algorithm
             List<AStarNode> path = FindPath(startNode, endNode);
             // Process and visualize the path
@@ -74,15 +74,15 @@ namespace AStarPath
         private static int[] GetField(Point idp)
         {
             return
-                (idp == new Point(0, 1) || idp == new Point(5, 2)) ? new int[] { 0, 0 } :
-                (idp == new Point(1, 3) || idp == new Point(4, 1)) ? new int[] { 1, 0 } :
-                (idp == new Point(3, 3) || idp == new Point(5, 3)) ? new int[] { 2, 0 } :
-                (idp == new Point(0, 0) || idp == new Point(3, 0)) ? new int[] { 0, 1 } :
-                (idp == new Point(3, 5) || idp == new Point(4, 2)) ? new int[] { 1, 1 } :
-                (idp == new Point(2, 4) || idp == new Point(4, 0)) ? new int[] { 1, 2 } :
-                (idp == new Point(1, 0) || idp == new Point(5, 1)) ? new int[] { 2, 0 } :
-                (idp == new Point(2, 3) || idp == new Point(3, 0)) ? new int[] { 2, 1 } :
-                (idp == new Point(0, 4) || idp == new Point(2, 1)) ? new int[] { 2, 2 } :
+                (idp == new Point(1, 2) || idp == new Point(6, 3)) ? new int[] { 0, 0 } :
+                (idp == new Point(2, 4) || idp == new Point(5, 2)) ? new int[] { 1, 0 } :
+                (idp == new Point(4, 4) || idp == new Point(6, 4)) ? new int[] { 2, 0 } :
+                (idp == new Point(1, 1) || idp == new Point(4, 1)) ? new int[] { 0, 1 } :
+                (idp == new Point(4, 6) || idp == new Point(5, 3)) ? new int[] { 1, 1 } :
+                (idp == new Point(3, 5) || idp == new Point(5, 1)) ? new int[] { 1, 2 } :
+                (idp == new Point(2, 1) || idp == new Point(6, 2)) ? new int[] { 2, 0 } :
+                (idp == new Point(3, 4) || idp == new Point(4, 1)) ? new int[] { 2, 1 } :
+                (idp == new Point(1, 5) || idp == new Point(3, 2)) ? new int[] { 2, 2 } :
                 new int[] { };
         }
         /// <summary>
@@ -93,7 +93,7 @@ namespace AStarPath
         /// <param name="dx">Change in x coordinate</param>
         /// <param name="dy">Change in y coordinate</param>
         /// <returns>The direction as a string</returns>
-        private static string GetDirection(int dx, int dy) => (dx == 1) ? "right" : (dx == -1) ? "left" : (dy == 1) ? "down" : (dy == -1) ? "up" : "unknown";
+        private static string GetDirection(int dx, int dy) => (dx == 1) ? "🠖" : (dx == -1) ? "🠔" : (dy == 1) ? "🠗" : (dy == -1) ? "🠕" : "unknown";
         /// <summary>
         /// Calculates the index based on the provided number.
         /// If the number is between 1 and 6 (inclusive), the corresponding index is calculated as (number * 2) - 2.
