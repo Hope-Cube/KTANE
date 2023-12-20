@@ -28,7 +28,7 @@ namespace AStarPath
             using (Bitmap field = new Bitmap("field.png"))
                 for (int y = 0; y < 11; y++)
                     for (int x = 0; x < 11; x++)
-                        if (field.GetPixel((id[1] * 11) + x, (id[0] * 11) + y) == Color.FromArgb(0, 0, 0))
+                        if (field.GetPixel((id[0] * 11) + x, (id[1] * 11) + y) == Color.FromArgb(0, 0, 0))
                             points.Add(new Point(x, y));
             // Mark AStarNodes corresponding to obstacle points
             foreach (Point point in points)
@@ -38,8 +38,8 @@ namespace AStarPath
                 for (int y = 0; y < 11; y++)
                     grid[x, y].GenerateNeighbors(grid);
             // Retrieve AStarNodes for the starting and ending points
-            AStarNode startNode = grid[GetIndexByNumber(sp.X), GetIndexByNumber(sp.Y)];
-            AStarNode endNode = grid[GetIndexByNumber(ep.X), GetIndexByNumber(ep.Y)];
+            AStarNode startNode = grid[sp.X, sp.Y];
+            AStarNode endNode = grid[ep.X, ep.Y];
             // Find the path using the A* algorithm
             List<AStarNode> path = FindPath(startNode, endNode);
             // Process and visualize the path
@@ -77,7 +77,7 @@ namespace AStarPath
                 (idp == new Point(0, 1) || idp == new Point(5, 2)) ? new int[] { 0, 0 } :
                 (idp == new Point(1, 3) || idp == new Point(4, 1)) ? new int[] { 1, 0 } :
                 (idp == new Point(3, 3) || idp == new Point(5, 3)) ? new int[] { 2, 0 } :
-                (idp == new Point(0, 0) || idp == new Point(3, 0)) ? new int[] { 1, 0 } :
+                (idp == new Point(0, 0) || idp == new Point(3, 0)) ? new int[] { 0, 1 } :
                 (idp == new Point(3, 5) || idp == new Point(4, 2)) ? new int[] { 1, 1 } :
                 (idp == new Point(2, 4) || idp == new Point(4, 0)) ? new int[] { 1, 2 } :
                 (idp == new Point(1, 0) || idp == new Point(5, 1)) ? new int[] { 2, 0 } :

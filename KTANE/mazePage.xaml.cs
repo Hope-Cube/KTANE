@@ -95,6 +95,7 @@ namespace KTANE
             if (cn == 0)
             {
                 id = GetPoint(checkBox.Name);
+                direction_display.Text = id.ToString() + "\n";
                 // Convert System.Drawing.Color to System.Windows.Media.Color
                 Color c = Color.FromArgb(0, 255, 0);
                 System.Windows.Media.Color wpfColor = System.Windows.Media.Color.FromArgb(
@@ -110,12 +111,14 @@ namespace KTANE
             else if (cn == 1)
             {
                 p1 = GetPoint(checkBox.Name);
+                direction_display.Text += p1.ToString() + "\n";
                 cn++;
             }
             else
             {
                 p2 = GetPoint(checkBox.Name);
-                direction_display.Text = Module.Maze.Correct(id, p1, p2);
+                direction_display.Text += p2.ToString() + "\n";
+                direction_display.Text += Module.Maze.Correct(id, p1, p2);
             }
         }
         private System.Drawing.Point GetPoint(string name)
