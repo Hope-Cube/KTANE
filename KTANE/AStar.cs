@@ -43,8 +43,7 @@ namespace AStarPath
             // Find the path using the A* algorithm
             List<AStarNode> path = FindPath(startNode, endNode);
             // Process and visualize the path
-            // Default result
-            string directions = "";
+            string direction = "";
             if (path != null)
             {
                 // Iterate through the path and mark the nodes
@@ -54,13 +53,15 @@ namespace AStarPath
                     AStarNode nextNode = (i + 1 < path.Count) ? path[i + 1] : null;
                     int dx = (nextNode != null) ? nextNode.X - currentNode.X : 0;
                     int dy = (nextNode != null) ? nextNode.Y - currentNode.Y : 0;
-                    directions += GetDirection(dx, dy) + " ";
+                    direction += GetDirection(dx, dy) + " ";
                 }
             }
-            // Display a message if no path is found
-            else directions = "No path found.";
-            // Return the result after the loop has completed
-            return directions;
+            else
+            {
+                // Display a message if no path is found
+                direction = "No path found.";
+            }
+            return direction;
         }
         /// <summary>
         /// Retrieves the field information based on the provided Point coordinates.
@@ -92,7 +93,7 @@ namespace AStarPath
         /// <param name="dx">Change in x coordinate</param>
         /// <param name="dy">Change in y coordinate</param>
         /// <returns>The direction as a string</returns>
-        private static string GetDirection(int dx, int dy) => (dx == 1) ? "→" : (dx == -1) ? "←" : (dy == 1) ? "↓" : (dy == -1) ? "↑" : "unknown";
+        private static string GetDirection(int dx, int dy) => (dx == 1) ? "right" : (dx == -1) ? "left" : (dy == 1) ? "down" : (dy == -1) ? "up" : "unknown";
         /// <summary>
         /// Calculates the index based on the provided number.
         /// If the number is between 1 and 6 (inclusive), the corresponding index is calculated as (number * 2) - 2.
@@ -114,10 +115,8 @@ namespace AStarPath
             // Initialize the open and closed sets
             List<AStarNode> openSet = new List<AStarNode>();
             HashSet<AStarNode> closedSet = new HashSet<AStarNode>();
-
             // Add the start node to the open set
             openSet.Add(startNode);
-
             // Main A* algorithm loop
             while (openSet.Count > 0)
             {
@@ -131,18 +130,15 @@ namespace AStarPath
                         currentNode = openSet[i];
                     }
                 }
-
                 // Remove the current node from the open set and add it to the closed set
                 openSet.Remove(currentNode);
                 closedSet.Add(currentNode);
-
                 // Check if the current node is the destination
                 if (currentNode == endNode)
                 {
                     // Retrace the path if the destination is reached
                     return RetracePath(startNode, endNode);
                 }
-
                 // Explore neighbors
                 foreach (AStarNode neighbor in currentNode.Neighbors)
                 {
@@ -151,10 +147,8 @@ namespace AStarPath
                     {
                         continue;
                     }
-
                     // Calculate the cost to reach the neighbor from the current node
                     int newCostToNeighbor = currentNode.GCost + GetDistance(currentNode, neighbor);
-
                     // Update neighbor's costs and parent if a better path is found
                     if (newCostToNeighbor < neighbor.GCost || !openSet.Contains(neighbor))
                     {
@@ -170,7 +164,6 @@ namespace AStarPath
                     }
                 }
             }
-
             // Path not found
             return null;
         }
@@ -186,31 +179,27 @@ namespace AStarPath
         {
             // Initialize the list to store the path
             List<AStarNode> path = new List<AStarNode>();
-
             // Start from the end node
             AStarNode currentNode = endNode;
-
             // Traverse the path using parent pointers until reaching the start node
             while (currentNode != startNode)
             {
                 // Add the current node to the path
                 path.Add(currentNode);
-
                 // Move to the parent node
                 currentNode = currentNode.Parent;
             }
-
             // Reverse the path to obtain the correct order from start to end
             path.Reverse();
-
             // Return the retrace path
             return path;
-        }/// <summary>
-         /// Calculates the Manhattan distance between two AStarNodes.
-         /// </summary>
-         /// <param name="nodeA">The first node</param>
-         /// <param name="nodeB">The second node</param>
-         /// <returns>The Manhattan distance between the two nodes</returns>
+        }
+        /// <summary>
+        /// Calculates the Manhattan distance between two AStarNodes.
+        /// </summary>
+        /// <param name="nodeA">The first node</param>
+        /// <param name="nodeB">The second node</param>
+        /// <returns>The Manhattan distance between the two nodes</returns>
         private static int GetDistance(AStarNode nodeA, AStarNode nodeB) => Math.Abs(nodeA.X - nodeB.X) + Math.Abs(nodeA.Y - nodeB.Y);
     }
 }

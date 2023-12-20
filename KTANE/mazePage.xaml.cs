@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AStarPath;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -114,6 +115,7 @@ namespace KTANE
             else
             {
                 p2 = PGetPoint(checkBox.Name);
+                direction_display.Text = AStar.Path(id, p1, p2);
             }
         }
         private System.Drawing.Point GetPoint(string name)
