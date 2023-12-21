@@ -20,7 +20,7 @@ namespace KTANE
         /// </summary>
         public class Wires
         {
-            public string Correct(int wn)
+            /*public string Correct(int wn)
             {
                 switch (wn)
                 {
@@ -33,7 +33,7 @@ namespace KTANE
                     case 6:
                         break;
                 }
-            }
+            }*/
             private string W3(bool isRed, bool lastIsWhite, bool moreThan1Blue)
             {
                 throw new NotImplementedException();
